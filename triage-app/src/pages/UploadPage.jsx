@@ -43,7 +43,7 @@ const UploadPage = () => {
       formData.append('image', selectedImage);
 
       console.log('📤 Sending image to backend...');
-      const response = await fetch('http://localhost:5000/analyze', {
+      const response = await fetch('https://ai-skin-triage.onrender.com/analyze', {
         method: 'POST',
         body: formData, // FormData automatically sets the correct Content-Type header
       });
