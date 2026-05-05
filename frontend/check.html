@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skin Triage Assistant | All-in-One Analysis</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+<body>
+    <header class="glass">
+        <div class="logo">SkinAI Triage</div>
+        <nav>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#how-it-works">How it Works</a></li>
+                <li><a href="#upload">Analyze</a></li>
+                <li><a href="#results">Results</a></li>
+                <li><a href="#upload" class="btn-primary">Get Started</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 1. Landing Page Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Next-Gen Skin Analysis with AI</h1>
+            <p>Empowering clinicians with real-time, AI-driven triage. Rapidly assess skin lesions with 99% confidence and prioritize patient care effectively.</p>
+            <div class="cta-group">
+                <a href="#upload" class="btn-primary">Launch Dashboard</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="ai_skin_triage_hero_1777828937001.png" alt="AI Skin Triage Assistant Interface">
+        </div>
+    </section>
+
+    <!-- 2. How It Works Section -->
+    <section id="how-it-works" class="features" style="padding: 120px 5%;">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto 5rem;">
+            <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem;">How It Works</h2>
+            <p style="font-size: 1.2rem; color: var(--text-muted);">The science of dermatological AI, simplified into three seamless steps.</p>
+        </div>
+        <div class="grid">
+            <div class="card glass">
+                <span class="material-icons-round icon">camera_enhance</span>
+                <h3>01. Scan</h3>
+                <p>Capture or upload a high-resolution image of the lesion for processing.</p>
+            </div>
+            <div class="card glass">
+                <span class="material-icons-round icon">hub</span>
+                <h3>02. Process</h3>
+                <p>Our Neural Network analyzes millions of patterns to detect abnormalities.</p>
+            </div>
+            <div class="card glass">
+                <span class="material-icons-round icon">rule</span>
+                <h3>03. Triage</h3>
+                <p>Receive an instant triage report with clinician-backed recommendations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Upload Page Section -->
+    <section id="upload" class="upload-section">
+        <div class="upload-box glass">
+            <h2 style="margin-bottom: 2rem;">Upload for Analysis</h2>
+            <div id="drop-zone" class="drop-zone">
+                <div id="upload-prompt">
+                    <span class="material-icons-round icon" style="font-size: 3.5rem;">cloud_upload</span>
+                    <p>Drag & Drop image here or click to browse</p>
+                </div>
+                <div id="preview-container" style="display: none; flex-direction: column; align-items: center;">
+                    <span class="material-icons-round" style="font-size: 4rem; color: var(--accent);">check_circle</span>
+                    <p id="file-name" style="margin-top: 1rem;"></p>
+                </div>
+                <input type="file" id="file-input" style="display: none;">
+            </div>
+            <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center;">
+                <button class="btn-secondary" onclick="document.getElementById('file-input').click()">Browse Files</button>
+                <button id="analyze-btn" class="btn-primary" style="opacity: 0.5; pointer-events: none;">Start AI Analysis</button>
+            </div>
+            <div id="progress-container" style="display: none; margin-top: 2rem;">
+                <div style="width: 100%; height: 4px; background: var(--glass-border); border-radius: 2px; overflow: hidden;">
+                    <div id="progress-bar" style="width: 0%; height: 100%; background: var(--primary); transition: width 0.1s;"></div>
+                </div>
+                <p id="status-text" style="margin-top: 1rem; color: var(--text-muted);">AI is processing...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Results Page Section -->
+    <section id="results" class="results-section">
+        <div class="result-card glass">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem;">
+                <div>
+                    <h2 style="font-size: 2.5rem;">Final Assessment</h2>
+                    <p style="color: var(--text-muted);">Results based on AI-model v4.2.1</p>
+                </div>
+                <div class="risk-badge risk-low">Low Risk</div>
+            </div>
+
+            <div class="analysis-grid">
+                <div class="preview-box">
+                    <span class="material-icons-round" style="font-size: 4rem; opacity: 0.2;">biotech</span>
+                    <div style="position: absolute; width: 100%; height: 2px; background: var(--primary); top: 0; animation: scan 3s infinite;"></div>
+                </div>
+                <div style="text-align: left;">
+                    <div style="margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-muted);">Confidence</span>
+                        <span style="font-weight: 700;">98.4%</span>
+                    </div>
+                    <div style="margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--glass-border); display: flex; justify-content: space-between;">
+                        <span style="color: var(--text-muted);">Pattern Match</span>
+                        <span style="font-weight: 700;">Optimal</span>
+                    </div>
+                    <div class="recommendation">
+                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Recommendation</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-main);">No immediate clinical action required. Continue routine monitoring and use UV protection daily.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="padding: 50px 5%; text-align: center; border-top: 1px solid var(--glass-border); margin-top: 50px;">
+        <div class="logo" style="margin-bottom: 1rem">SkinAI Triage</div>
+        <p style="color: var(--text-muted); font-size: 0.8rem">© 2026 AI Skin Triage Assistant. All-in-one Clinical Portal.</p>
+    </footer>
+
+    <script>
+        // Analysis Logic
+        const fileInput = document.getElementById('file-input');
+        const dropZone = document.getElementById('drop-zone');
+        const analyzeBtn = document.getElementById('analyze-btn');
+        const progressContainer = document.getElementById('progress-container');
+        const progressBar = document.getElementById('progress-bar');
+        const statusText = document.getElementById('status-text');
+        const previewContainer = document.getElementById('preview-container');
+        const uploadPrompt = document.getElementById('upload-prompt');
+        const fileName = document.getElementById('file-name');
+
+        dropZone.onclick = () => fileInput.click();
+
+        fileInput.onchange = (e) => {
+            if(e.target.files.length > 0) {
+                uploadPrompt.style.display = 'none';
+                previewContainer.style.display = 'flex';
+                fileName.textContent = e.target.files[0].name;
+                analyzeBtn.style.opacity = '1';
+                analyzeBtn.style.pointerEvents = 'auto';
+            }
+        };
+
+        analyzeBtn.onclick = () => {
+            analyzeBtn.style.display = 'none';
+            progressContainer.style.display = 'block';
+            let width = 0;
+            const interval = setInterval(() => {
+                if(width >= 100) {
+                    clearInterval(interval);
+                    statusText.textContent = 'Complete! View results below.';
+                    document.getElementById('results').scrollIntoView({behavior: 'smooth'});
+                } else {
+                    width += 1;
+                    progressBar.style.width = width + '%';
+                    if(width === 30) statusText.textContent = 'Segmenting lesion...';
+                    if(width === 60) statusText.textContent = 'Analyzing morphology...';
+                    if(width === 90) statusText.textContent = 'Finalizing report...';
+                }
+            }, 30);
+        };
+
+        // Header scroll effect
+        window.onscroll = () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) header.style.background = 'rgba(10, 11, 16, 0.9)';
+            else header.style.background = 'rgba(255, 255, 255, 0.03)';
+        };
+    </script>
+    <style>
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+    </style>
+</body>
+</html>

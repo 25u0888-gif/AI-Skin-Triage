@@ -1,0 +1,38 @@
+<!-- SECTION 2: UPLOAD -->
+<section id="upload" class="reveal">
+    <div class="upload-box glass">
+        <h2 style="margin-bottom: 2rem;">Analyze Skin Lesion</h2>
+
+        <div id="drop-zone" class="drop-zone">
+            <div id="upload-prompt">
+                <span class="material-icons-round" style="font-size: 4rem; color: var(--primary);">cloud_upload</span>
+                <p>Drag & Drop an image or click to browse</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">Supports JPG, PNG (Max 10MB)</p>
+            </div>
+            <div id="preview-container" style="display: none; flex-direction: column; align-items: center; gap: 1rem;">
+                <div
+                    style="width: 300px; height: 200px; background: rgba(0,0,0,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
+                    <span class="material-icons-round" style="font-size: 3rem;">image</span>
+                </div>
+                <p id="file-name" style="font-weight: 500;"></p>
+            </div>
+            <input type="file" id="file-input" accept="image/*" style="display: none;">
+        </div>
+
+        <div class="controls">
+            <button class="btn-secondary" onclick="document.getElementById('file-input').click()">
+                <span class="material-icons-round" style="vertical-align: middle; margin-right: 5px;">attach_file</span>
+                Browse Files
+            </button>
+            <button id="analyze-btn" class="btn-primary" style="opacity: 0.5; pointer-events: none;">
+                Start Analysis
+            </button>
+        </div>
+
+        <div id="processing-bar" class="processing-bar">
+            <div id="progress" class="progress"></div>
+        </div>
+        <p id="status-text" style="margin-top: 1rem; color: var(--text-muted); display: none;">AI is processing your
+            image...</p>
+    </div>
+</section>

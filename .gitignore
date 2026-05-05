@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+.venv/
+env/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Models (Large Files)
+*.h5
+*.pth
+*.keras
+*.tflite
+*.onnx
+
+# Environment variables
+.env
+kaggle.json
+
+# Builds
+dist/
+build/
+out/
+
+# IDEs
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Project specific
+data/
+uploads/
+ml-service/data/
+ml-service/__pycache__/
+triage-app/node_modules/
+backend/node_modules/

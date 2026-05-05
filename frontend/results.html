@@ -1,0 +1,38 @@
+<!-- SECTION 3: RESULTS -->
+<section id="results" class="reveal">
+    <div class="results-container">
+        <div class="result-header">
+            <div>
+                <h2 style="font-size: 2.5rem;">Analysis Report</h2>
+                <p style="color: var(--text-muted);">Status: <span id="report-status">Waiting for data...</span></p>
+            </div>
+            <div id="risk-badge" class="risk-badge" style="display: none;">Low Risk</div>
+        </div>
+
+        <div class="analysis-grid" id="results-grid" style="opacity: 0.2; pointer-events: none;">
+            <div class="image-preview-panel glass">
+                <div
+                    style="height: 100%; display: flex; align-items: center; justify-content: center; color: var(--text-muted);">
+                    <span class="material-icons-round" style="font-size: 4rem;">biotech</span>
+                </div>
+                <div id="scan-line"
+                    style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--primary); opacity: 0.5; animation: scan 3s infinite;">
+                </div>
+            </div>
+
+            <div class="details-panel glass">
+                <h3>Clinical Metrics</h3>
+                <div style="margin-top: 1.5rem;">
+                    <div class="metric-row"><span>Asymmetry Score</span><span id="metric-asymmetry">-</span></div>
+                    <div class="metric-row"><span>Border Irregularity</span><span id="metric-border">-</span></div>
+                    <div class="metric-row"><span>Color Variance</span><span id="metric-color">-</span></div>
+                    <div class="metric-row"><span>AI Confidence</span><span id="metric-confidence">-</span></div>
+                </div>
+                <div class="recommendation-box" id="recommendation" style="display: none;">
+                    <h4>Clinician Recommendation</h4>
+                    <p id="rec-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

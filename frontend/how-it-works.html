@@ -1,0 +1,131 @@
+<!-- SECTION 4: HOW IT WORKS -->
+<section id="how-it-works" class="reveal">
+    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">How It Works</h2>
+        <p style="color: var(--text-muted);">Our science-backed approach to dermatological triage.</p>
+    </div>
+
+    <div class="process-steps">
+        <div class="card glass reveal">
+            <span class="material-icons-round"
+                style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;">camera</span>
+            <h3>01. Acquisition</h3>
+            <p>High-resolution imaging captures lesion morphology with precision.</p>
+        </div>
+        <div class="card glass reveal">
+            <span class="material-icons-round"
+                style="font-size: 2.5rem; color: var(--secondary); margin-bottom: 1rem;">memory</span>
+            <h3>02. Analysis</h3>
+            <p>Deep learning models process architectural features and chromatic variance.</p>
+        </div>
+        <div class="card glass reveal">
+            <span class="material-icons-round"
+                style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem;">analytics</span>
+            <h3>03. Triage</h3>
+            <p>Real-time risk stratification helps prioritize clinical intervention.</p>
+        </div>
+    </div>
+
+    <div class="tech-section reveal">
+        <div class="tech-img">
+            <span class="material-icons-round" style="font-size: 6rem;">security</span>
+        </div>
+        <div>
+            <h3>Privacy by Design</h3>
+            <p style="color: var(--text-muted); margin-top: 1rem;">All data is encrypted in transit and at rest. We
+                adhere to the highest HIPAA and GDPR standards for medical data processing.</p>
+        </div>
+    </div>
+</section>
+
+<footer style="padding: 50px 5%; text-align: center; border-top: 1px solid var(--glass-border)">
+    <div class="logo" style="margin-bottom: 1rem">SkinAI Triage</div>
+    <p style="color: var(--text-muted); font-size: 0.8rem">© 2026 AI Skin Triage Assistant. Professional medical
+        software.</p>
+</footer>
+
+<script>
+    // Scroll Reveal Logic
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Upload & Analysis Logic
+    const fileInput = document.getElementById('file-input');
+    const analyzeBtn = document.getElementById('analyze-btn');
+    const processingBar = document.getElementById('processing-bar');
+    const progress = document.getElementById('progress');
+    const statusText = document.getElementById('status-text');
+    const resultsGrid = document.getElementById('results-grid');
+
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length > 0) {
+            document.getElementById('upload-prompt').style.display = 'none';
+            document.getElementById('preview-container').style.display = 'flex';
+            document.getElementById('file-name').textContent = e.target.files[0].name;
+            analyzeBtn.style.opacity = '1';
+            analyzeBtn.style.pointerEvents = 'auto';
+        }
+    });
+
+    analyzeBtn.addEventListener('click', () => {
+        analyzeBtn.style.opacity = '0.5';
+        analyzeBtn.style.pointerEvents = 'none';
+        processingBar.style.display = 'block';
+        statusText.style.display = 'block';
+
+        let width = 0;
+        const interval = setInterval(() => {
+            if (width >= 100) {
+                clearInterval(interval);
+                statusText.textContent = 'Analysis Complete! Viewing Results...';
+                setTimeout(() => {
+                    showResults();
+                    window.location.hash = 'results';
+                }, 1000);
+            } else {
+                width += 2;
+                progress.style.width = width + '%';
+            }
+        }, 30);
+    });
+
+    function showResults() {
+        resultsGrid.style.opacity = '1';
+        resultsGrid.style.pointerEvents = 'auto';
+        document.getElementById('report-status').textContent = 'Finalized #SKN-42';
+        document.getElementById('risk-badge').style.display = 'block';
+        document.getElementById('risk-badge').className = 'risk-badge risk-low';
+        document.getElementById('scan-line').style.display = 'block';
+
+        // Fill data
+        document.getElementById('metric-asymmetry').textContent = '0.12 (Normal)';
+        document.getElementById('metric-border').textContent = '0.08 (Smooth)';
+        document.getElementById('metric-color').textContent = '0.15 (Uniform)';
+        document.getElementById('metric-confidence').textContent = '98.4%';
+
+        document.getElementById('recommendation').style.display = 'block';
+        document.getElementById('rec-text').textContent = 'Lesion appears benign. Regular monitoring recommended.';
+    }
+</script>
+
+<style>
+    @keyframes scan {
+        0% {
+            top: 0;
+        }
+
+        100% {
+            top: 100%;
+        }
+    }
+</style>
+</body>
+
+</html>
